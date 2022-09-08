@@ -1,0 +1,17 @@
+apiVersion: gcp.com/v1alpha1
+kind: computeinstance
+metadata:
+  namespace: crossplane-system
+  name: test4
+spec:
+#  compositionRef:
+#    name: computeinstance
+#  compositionSelector:
+#    matchLabels:
+#      crossplane.io/xrd: xcomputeinstance.gcp.com
+  parameters:
+    zone: europe-west2-b
+    machineType: small
+    filestoreName: pg
+#  writeConnectionSecretToRef:
+#    name: my-instance-connection-details
