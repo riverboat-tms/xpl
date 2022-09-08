@@ -51,7 +51,7 @@ spec:
           fileShares:
             - capacityGb: 1024
               name: filestore
-          name: filestore
+          #name: filestore
           networks:
             - network: default
               modes:
@@ -64,3 +64,6 @@ spec:
       fromFieldPath: spec.parameters.zone
       toFieldPath: spec.forProvider.zone
 
+    - type: FromCompositeFieldPath
+      fromFieldPath: spec.parameters.filestoreName
+      toFieldPath: spec.forProvider.name
