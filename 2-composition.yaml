@@ -3,11 +3,11 @@ kind: Composition
 metadata:
   name: computeinstance
   labels:
-    crossplane.io/xrd: xcomputeinstances.gcp.com
+    crossplane.io/xrd: xcomputeinstances.example.com
 spec:
   writeConnectionSecretsToNamespace: crossplane-system
   compositeTypeRef:
-    apiVersion: gcp.com/v1alpha1
+    apiVersion: example.com/v1alpha1
     kind: xcomputeinstance
   resources:
   - name: compute
