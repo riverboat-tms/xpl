@@ -1,0 +1,26 @@
+apiVersion: sql.gcp.jet.crossplane.io/v1alpha2
+kind: DatabaseInstance
+metadata:
+  name: example
+  annotations:
+    crossplane.io/external-name: example
+spec:
+  forProvider:
+    deletionProtection: false
+    databaseVersion: MYSQL_5_6
+    region: europe-west2
+    settings:
+      - tier: db-n1-standard-2
+        diskSize: 16
+        availabilityType: REGIONAL
+        userLabels:
+          owner: pg
+        backupConfiguration:
+          - enabled: true
+            binaryLogEnabled: true
+  providerConfigRef:
+    name: default
+  #deletionPolicy: Orphan
+  writeConnectionSecretToRef:
+    name: example-sql-connection-details
+    namespace: crossplane-system
